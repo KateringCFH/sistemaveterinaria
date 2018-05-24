@@ -49,8 +49,14 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'app' => 'string|max:45',
+            'apm' => 'string|max:45',
+            'email' => 'required|string|max:20|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'cargo' => 'string|max:45',
+            'ci' => 'max:9',
+            'telefono' => 'max:9',
+            'direccion' => 'string|max:255',
         ]);
     }
 
@@ -64,8 +70,14 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
+            'app' => $data['app'],
+            'apm' => $data['apm'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'cargo' => $data['cargo'],
+            'ci' => $data['ci'],
+            'telefono' => $data['telefono'],
+            'direccion' => $data['direccion'],
         ]);
     }
 }
