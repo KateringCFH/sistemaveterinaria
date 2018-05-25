@@ -33,10 +33,15 @@
                 <!--logo end-->
                 <div class="top-menu">
                     <ul class="nav pull-right top-menu">
-                        <li>
-                            <a class="logout" href="">
+                      <li>
+                            <a class="logout" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
                                 Logout
                             </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
                         </li>
                     </ul>
                 </div>
@@ -46,6 +51,11 @@
             <aside>
                 <div class="nav-collapse " id="sidebar">
                     <ul class="sidebar-menu" id="nav-accordion">
+                      <h5 class="centered">
+                        {{ Auth::user()->name}}
+                        {{ Auth::user()->app}}<br/><br/>
+                        {{ Auth::user()->cargo }}
+                      </h5><hr/>
                         <li class="mt">
                             <a>
                                 <i class="fa fa-dashboard">
@@ -65,14 +75,14 @@
                             </a>
                             <ul class="sub">
                                 <li>
-                                    <a>
+                                    <a href="{{url('/propietario')}}">
                                         Listado de propietarios
                                     </a>
                                 </li>
                             </ul>
                             <ul class="sub">
                                 <li>
-                                    <a>
+                                    <a href="{{action('PropietarioController@create') }}">
                                         Registrar propietario
                                     </a>
                                 </li>
@@ -134,15 +144,8 @@
                             </a>
                             <ul class="sub">
                                 <li>
-                                    <a>
+                                    <a href="{{url('/personal')}}">
                                         Listado de empleados
-                                    </a>
-                                </li>
-                            </ul>
-                            <ul class="sub">
-                                <li>
-                                    <a>
-                                        Registro de empleado
                                     </a>
                                 </li>
                             </ul>
