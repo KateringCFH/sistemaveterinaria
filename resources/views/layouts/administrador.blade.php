@@ -98,14 +98,14 @@
                             </a>
                             <ul class="sub">
                                 <li>
-                                    <a>
+                                    <a href="{{url('/mascota')}}">
                                         Listado de mascotas
                                     </a>
                                 </li>
                             </ul>
                             <ul class="sub">
                                 <li>
-                                    <a>
+                                    <a href="{{action('MascotaController@create')}}">
                                         Registrar mascota
                                     </a>
                                 </li>
@@ -121,14 +121,14 @@
                             </a>
                             <ul class="sub">
                                 <li>
-                                    <a>
+                                    <a href="{{url('/historial')}}">
                                         Listado de historial
                                     </a>
                                 </li>
                             </ul>
                             <ul class="sub">
                                 <li>
-                                    <a>
+                                    <a href="{{action('HistorialController@create')}}">
                                         Registro de historial
                                     </a>
                                 </li>
@@ -174,17 +174,11 @@
             @yield('contenido');
             <!-- fin contenido -->
         </section>
-        <script src="{{asset('assets/js/jquery.js')}}">
-        </script>
-        <script src="{{asset('assets/js/bootstrap.min.js')}}">
-        </script>
-        <script class="include" src="{{asset('assets/js/jquery.dcjqaccordion.2.7.js')}}" type="text/javascript">
-        </script>
-        <script src="{{asset('assets/js/jquery.scrollTo.min.js')}}">
-        </script>
-        <script src="{{asset('assets/js/jquery.nicescroll.js')}}" type="text/javascript">
-        </script>
-        <script src="{{asset('assets/js/common-scripts.js')}}">
-        </script>
+        <script src="{{asset('assets/js/jquery.js')}}"></script>
+        <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+        <script class="include" src="{{asset('assets/js/jquery.dcjqaccordion.2.7.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/js/jquery.scrollTo.min.js')}}"></script>
+        <script src="{{asset('assets/js/jquery.nicescroll.js')}}" type="text/javascript"></script>
+        <script src="{{asset('assets/js/common-scripts.js')}}"></script>
     </body>
 </html>

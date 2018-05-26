@@ -1,11 +1,11 @@
-<div aria-hidden="true" class="modal fade modal-slide-in-right" id="modal-delete-{{$m->idmascota}}" role="dialog" tabindex="-1">
-    {{Form::Open(array('action'=>array('MascotaController@destroy',$m->idmascota),'method'=>'delete'))}}
+<div aria-hidden="true" class="modal fade modal-slide-in-right" id="modal-delete-{{$m->id_mascota}}" role="dialog" tabindex="-1">
+    {{Form::Open(array('action'=>array('MascotaController@destroy',$m->id_mascota),'method'=>'delete'))}}
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button aria-label="Close" class="close" data-dismiss="modal" type="button">
                     <span aria-hidden="true">
-                        ×
+                        X
                     </span>
                 </button>
                 <h4 class="modal-title">

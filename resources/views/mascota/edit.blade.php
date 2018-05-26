@@ -26,7 +26,7 @@
                         </ul>
                     </div>
                     @endif
-      {!!Form::model($mascota,['method'=>'PATCH','route'=>['mascota.update', $mascota->idmascota]])!!}
+      {!!Form::model($mascota,['method'=>'PATCH','route'=>['mascota.update', $mascota->id_mascota]])!!}
             {{Form::token()}}
                     <section class="panel" id="no-more-tables">
                         <table width="100%">

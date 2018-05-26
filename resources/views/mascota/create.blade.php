@@ -26,7 +26,7 @@
                         </ul>
                     </div>
                     @endif
-      {!!Form::open(array('url'=>'administrador/mascota','method'=>'POST','autocomplete'=>'off'))!!}
+      {!!Form::open(array('url'=>'/mascota','method'=>'POST','autocomplete'=>'off'))!!}
             {{Form::token()}}
                     <section class="panel" id="no-more-tables">
                         <table width="100%">
@@ -42,11 +42,11 @@
                                             <div class="col-sm-12">
                                                 <select class="form-control" name="propietario">
                                                     @foreach ($propietario as $p)
-                                                    <option value="{{$p->idpropietario}}">
-                                                        {{$p->idpropietario}} .-
+                                                    <option value="{{$p->id_propietario}}">
+                                                        {{$p->id_propietario}} .-
                                                         {{$p->nombre}}
-                                                        {{$p->ap_paterno}}
-                                                        {{$p->ap_materno}}
+                                                        {{$p->app}}
+                                                        {{$p->apm}}
                                                     </option>
                                                     @endforeach
                                                 </select>

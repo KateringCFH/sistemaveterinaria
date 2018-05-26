@@ -1,4 +1,4 @@
-{!! Form::open(array('url'=>'administrador/mascota','method'=>'GET','autocomplete'=>'off','role'=>'search')) !!}
+{!! Form::open(array('url'=>'/mascota','method'=>'GET','autocomplete'=>'off','role'=>'search')) !!}
 <section>
     <div class="col-md-5">
         <div class="input-group">

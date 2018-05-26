@@ -24,18 +24,16 @@ class CitaFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'cargo'       => 'max:45',
             'fecha'       => 'max:45',
-            'hora'        => 'max:45',
-            'producto'    => 'max:45',
-            'observacion' => 'max:200',
-            'estado'      => 'max:45',
+            'producto'    => 'max:200',
+            'observacion' => 'max:500',
+            'estado'      => 'max:50',
             'prox_cita'   => 'max:45',
             'peso'        => '',
             'edad'        => 'max:11',
-            'idpersonal'  => 'max:11',
-            'idmascota'   => 'max:11',
-            'idservicio'  => 'max:11',
+            'id'  => 'max:11',
+            'id_servicio'  => 'max:11',
+            'id_mascota'   => 'max:11',
         ];
     }
 }

@@ -12,30 +12,30 @@ class MascotaController extends Controller
 {
     public function __construct()
     {
-
+        $this->middleware('auth');
     }
     public function index(Request $request)
     {
         if ($request) {
             $query   = trim($request->get('searchText'));
             $Mascota = DB::table('mascota as m')
-                ->join('propietario as p', 'm.idpropietario', '=', 'p.idpropietario')
-                ->select('m.idmascota', 'm.nombre', 'm.raza', 'm.especie', 'm.sexo', 'm.descripcion', 'm.fecha_registro', 'p.nombre as pn', 'p.ap_paterno as pp', 'p.ap_materno as pm')
+                ->join('propietario as p', 'm.id_propietario', '=', 'p.id_propietario')
+                ->select('m.id_mascota', 'm.nombre', 'm.raza', 'm.especie', 'm.sexo', 'm.descripcion', 'm.fecha_registro', 'p.nombre as pn', 'p.app as pp', 'p.apm as pm')
                 ->where('m.nombre', 'LIKE', '%' . $query . '%')
                 ->orwhere('m.raza', 'LIKE', '%' . $query . '%')
                 ->orwhere('m.especie', 'LIKE', '%' . $query . '%')
                 ->orwhere('m.sexo', 'LIKE', '%' . $query . '%')
                 ->orwhere('m.descripcion', 'LIKE', '%' . $query . '%')
-                ->orderBy('m.idmascota', 'asc')
+                ->orderBy('m.id_mascota', 'asc')
                 ->paginate(8);
-            return view('administrador.mascota.index', ["Mascota" => $Mascota, "searchText" => $query]);
+            return view('mascota.index', ["Mascota" => $Mascota, "searchText" => $query]);
         }
     }
     public function create()
     {
         $propietario = DB::table('propietario')
             ->get();
-        return view('administrador.mascota.create', ["propietario" => $propietario]);
+        return view('mascota.create', ["propietario" => $propietario]);
     }
     public function store(MascotaFormRequest $request)
     {
@@ -46,24 +46,24 @@ class MascotaController extends Controller
         $Mascota->sexo           = $request->get('sexo');
         $Mascota->descripcion    = $request->get('descripcion');
         $Mascota->fecha_registro = $request->get('fecha');
-        $Mascota->idpropietario  = $request->get('propietario');
+        $Mascota->id_propietario  = $request->get('propietario');
         $Mascota->save();
 
-        return Redirect::to('administrador/mascota');
+        return Redirect::to('/mascota');
     }
     public function show($id)
     {
-        return view("administrador.mascota.show", ["mascota" => Mascota::findOrFail($id)]);
+        return view("mascota.show", ["mascota" => Mascota::findOrFail($id)]);
     }
     public function edit($id)
     {
         $mascota = Mascota::findOrfail($id);
         $idp     = DB::table('mascota as m')
-            ->join('propietario as p', 'm.idpropietario', '=', 'p.idpropietario')
-            ->select('p.idpropietario as idp', 'p.nombre as nombre', 'p.ap_paterno as app', 'p.ap_materno as pm')
-            ->where('m.idmascota', '=', $id)
+            ->join('propietario as p', 'm.id_propietario', '=', 'p.id_propietario')
+            ->select('p.id_propietario as idp', 'p.nombre as nombre', 'p.app as app', 'p.apm as pm')
+            ->where('m.id_mascota', '=', $id)
             ->first();
-        return view("administrador.mascota.edit", ["mascota" => $mascota, "idp" => $idp]);
+        return view("mascota.edit", ["mascota" => $mascota, "idp" => $idp]);
 
     }
     public function update(MascotaFormRequest $request, $id)
@@ -75,15 +75,15 @@ class MascotaController extends Controller
         $Mascota->sexo           = $request->get('sexo');
         $Mascota->descripcion    = $request->get('descripcion');
         $Mascota->fecha_registro = $request->get('fecha');
-        $Mascota->idpropietario  = $Mascota->idpropietario;
+        $Mascota->id_propietario  = $Mascota->id_propietario;
         $Mascota->update();
 
-        return Redirect::to('administrador/mascota');
+        return Redirect::to('/mascota');
     }
     public function destroy($id)
     {
         $mascota = Mascota::findOrfail($id);
         $mascota->delete();
-        return Redirect::to('administrador/mascota');
+        return Redirect::to('/mascota');
     }
 }

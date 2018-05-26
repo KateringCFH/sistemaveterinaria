@@ -20,7 +20,7 @@
                             </i>
                         </a>
                     </h4>
-                    @include('administrador.historial.search')
+                    @include('historial.search')
                     <section id="no-more-tables">
                         <table class="table table-bordered table-striped table-condensed cf">
                             <thead class="cf">

@@ -24,13 +24,13 @@ class MascotaFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre'         => 'required|max:45',
-            'raza'           => 'required|max:45',
-            'especie'        => 'max:45',
-            'sexo'           => 'required|max:8',
-            'descripcion'    => 'max:100',
-            'fecha_registro' => 'max:45',
-            'idpropietario'  => 'max:8',
+            'nombre'         => 'required|max:50',
+            'raza'           => 'max:50',
+            'especie'        => 'max:50',
+            'sexo'           => 'required|max:50',
+            'descripcion'    => 'max:500',
+            'fecha_registro' => 'max:50',
+            'id_propietario' => 'max:11',
         ];
     }
 }

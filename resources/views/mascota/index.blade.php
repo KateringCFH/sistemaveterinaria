@@ -20,7 +20,7 @@
                             </i>
                         </a>
                     </h4>
-                    @include('administrador.mascota.search')
+                    @include('mascota.search')
                     <section id="no-more-tables">
                         <table class="table table-bordered table-striped table-condensed cf">
                             <thead class="cf">
@@ -58,7 +58,7 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        {{ $m->idmascota }}
+                                        {{ $m->id_mascota }}
                                     </td>
                                     <td>
                                         {{ $m->nombre }}
@@ -84,19 +84,19 @@
                                         {{ $m->pm }}
                                     </td>
                                     <td>
-                                        <a class="btn btn-warning btn-xs" href="{{URL::action('MascotaController@edit',$m->idmascota)}}" type="submit">
+                                        <a class="btn btn-warning btn-xs" href="{{URL::action('MascotaController@edit',$m->id_mascota)}}" type="submit">
                                             <i class="fa fa-pencil">
                                                 Editar
                                             </i>
                                         </a>
-                                        <a class="btn btn-danger btn-xs" data-target="#modal-delete-{{$m->idmascota}}" data-toggle="modal" href="">
+                                        <a class="btn btn-danger btn-xs" data-target="#modal-delete-{{$m->id_mascota}}" data-toggle="modal" href="">
                                             <i class="fa fa-times">
                                                 Eliminar
                                             </i>
                                         </a>
                                     </td>
                                 </tr>
-                                @include('administrador.mascota.modal')
+                                @include('mascota.modal')
                             </tbody>
                             @endforeach
                         </table>

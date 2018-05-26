@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Mascota extends Model
 {
     protected $table      = 'mascota';
-    protected $primaryKey = 'idmascota';
+    protected $primaryKey = 'id_mascota';
     public $timestamps    = false;
 
     protected $fillable = [
@@ -17,7 +17,7 @@ class Mascota extends Model
         'sexo',
         'descripcion',
         'fecha_registro',
-        'idpropietario',
+        'id_propietario',
     ];
 
     protected $guarded = [
