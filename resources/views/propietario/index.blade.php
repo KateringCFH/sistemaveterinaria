@@ -20,7 +20,7 @@
                             </i>
                         </a>
                     </h4>
-                    @include('administrador.propietario.search')
+                    @include('propietario.search')
                     <section id="no-more-tables">
                         <table class="table table-bordered table-striped table-condensed cf">
                             <thead class="cf">
@@ -58,19 +58,19 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        {{ $pr->idpropietario }}
+                                        {{ $pr->id_propietario }}
                                     </td>
                                     <td>
                                         {{ $pr->nombre }}
                                     </td>
                                     <td>
-                                        {{ $pr->ap_paterno }}
+                                        {{ $pr->app }}
                                     </td>
                                     <td>
-                                        {{ $pr->ap_materno }}
+                                        {{ $pr->apm }}
                                     </td>
                                     <td>
-                                        {{ $pr->telf }}
+                                        {{ $pr->telefono }}
                                     </td>
                                     <td>
                                         {{ $pr->ci }}
@@ -82,19 +82,19 @@
                                         {{ $pr->rfid }}
                                     </td>
                                     <td>
-                                        <a class="btn btn-warning btn-xs" href="{{URL::action('PropietarioController@edit',$pr->idpropietario)}}" type="submit">
+                                        <a class="btn btn-warning btn-xs" href="{{URL::action('PropietarioController@edit',$pr->id_propietario)}}" type="submit">
                                             <i class="fa fa-pencil">
                                                 Editar
                                             </i>
                                         </a>
-                                        <a class="btn btn-danger btn-xs" data-target="#modal-delete-{{$pr->idpropietario}}" data-toggle="modal" href="">
+                                        <a class="btn btn-danger btn-xs" data-target="#modal-delete-{{$pr->id_propietario}}" data-toggle="modal" href="">
                                             <i class="fa fa-times">
                                                 Eliminar
                                             </i>
                                         </a>
                                     </td>
                                 </tr>
-                                @include('administrador.propietario.modal')
+                                @include('propietario.modal')
                             </tbody>
                             @endforeach
                         </table>

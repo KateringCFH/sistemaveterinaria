@@ -24,13 +24,13 @@ class PropietarioFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre'     => 'required|max:45',
-            'ap_paterno' => 'required|max:45',
-            'ap_materno' => 'max:45',
-            'telf'       => 'max:8',
-            'ci'         => 'required|max:8',
-            'direccion'  => 'max:100',
-            'rfid'       => 'max:45|required',
+            'nombre'     => 'required|max:50',
+            'app' => 'required|max:50',
+            'apm' => 'max:45',
+            'ci'         => 'required|max:9',
+            'telefono'   => 'required|max:9',
+            'direccion'  => 'max:200',
+            'rfid'       => 'max:11|required',
         ];
     }
 }

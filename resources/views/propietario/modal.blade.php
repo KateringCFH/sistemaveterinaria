@@ -1,6 +1,6 @@
 <!--Ventana emergente para confirmar que se eliminara un registro -->
-<div aria-hidden="true" class="modal fade modal-slide-in-right" id="modal-delete-{{$pr->idpropietario}}" role="dialog" tabindex="-1">
-    {{Form::Open(array('action'=>array('PropietarioController@destroy',$pr->idpropietario),'method'=>'delete'))}}
+<div aria-hidden="true" class="modal fade modal-slide-in-right" id="modal-delete-{{$pr->id_propietario}}" role="dialog" tabindex="-1">
+    {{Form::Open(array('action'=>array('PropietarioController@destroy',$pr->id_propietario),'method'=>'delete'))}}
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

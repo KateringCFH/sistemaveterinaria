@@ -26,7 +26,7 @@
                         </ul>
                     </div>
                     @endif
-      {!!Form::open(array('url'=>'administrador/propietario','method'=>'POST','autocomplete'=>'off'))!!}
+      {!!Form::open(array('url'=>'/propietario','method'=>'POST','autocomplete'=>'off'))!!}
             {{Form::token()}}
                     <section class="panel" id="no-more-tables">
                         <table width="100%">
@@ -100,7 +100,7 @@
                                                 AP. PATERNO:
                                             </label>
                                             <div class="col-sm-12">
-                                                <input class="form-control" name="ap_paterno" type="text">
+                                                <input class="form-control" name="app" type="text">
                                                 </input>
                                             </div>
                                         </br>
@@ -113,7 +113,7 @@
                                                 TELEFONO:
                                             </label>
                                             <div class="col-sm-12">
-                                                <input class="form-control" name="telf" type="integer">
+                                                <input class="form-control" name="telefono" type="integer">
                                                 </input>
                                             </div>
                                         </br>
@@ -132,7 +132,7 @@
                                                 AP. MATERNO:
                                             </label>
                                             <div class="col-sm-12">
-                                                <input class="form-control" name="ap_materno" type="text">
+                                                <input class="form-control" name="apm" type="text">
                                                 </input>
                                             </div>
                                         </br>

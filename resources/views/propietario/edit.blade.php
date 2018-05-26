@@ -26,8 +26,8 @@
                         </ul>
                     </div>
                     @endif
-      {!!Form::model($propietario,['method'=>'PATCH','route'=>['propietario.update', $propietario->idpropietario]])!!}
-            {{Form::token()}}
+                    {!!Form::model($propietario,['method'=>'PATCH','route'=>['propietario.update', $propietario->id_propietario]])!!}
+                    {{Form::token()}}
                     <section class="panel" id="no-more-tables">
                         <table width="100%">
                             <tr>
@@ -100,7 +100,7 @@
                                                 AP. PATERNO:
                                             </label>
                                             <div class="col-sm-12">
-                                                <input class="form-control" name="ap_paterno" type="text" value="{{$propietario->ap_paterno}}">
+                                                <input class="form-control" name="app" type="text" value="{{$propietario->app}}">
                                                 </input>
                                             </div>
                                         </br>
@@ -113,7 +113,7 @@
                                                 TELEFONO:
                                             </label>
                                             <div class="col-sm-12">
-                                                <input class="form-control" name="telf" type="text" value="{{$propietario->telf}}">
+                                                <input class="form-control" name="telefono" type="text" value="{{$propietario->telefono}}">
                                                 </input>
                                             </div>
                                         </br>
@@ -132,7 +132,7 @@
                                                 AP. MATERNO:
                                             </label>
                                             <div class="col-sm-12">
-                                                <input class="form-control" name="ap_materno" type="text" value="{{$propietario->ap_materno}}">
+                                                <input class="form-control" name="apm" type="text" value="{{$propietario->apm}}">
                                                 </input>
                                             </div>
                                         </br>
