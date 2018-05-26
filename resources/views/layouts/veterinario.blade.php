@@ -75,14 +75,14 @@
                             </a>
                             <ul class="sub">
                                 <li>
-                                    <a>
+                                    <a href="{{url('/propietario')}}">
                                         Listado de propietarios
                                     </a>
                                 </li>
                             </ul>
                             <ul class="sub">
                                 <li>
-                                    <a>
+                                    <a href="{{action('PropietarioController@create')}}">
                                         Registrar propietario
                                     </a>
                                 </li>
@@ -98,14 +98,14 @@
                             </a>
                             <ul class="sub">
                                 <li>
-                                    <a>
+                                    <a href="{{url('/mascota')}}">
                                         Listado de mascotas
                                     </a>
                                 </li>
                             </ul>
                             <ul class="sub">
                                 <li>
-                                    <a>
+                                    <a href="{{action('MascotaController@create')}}">
                                         Registrar mascota
                                     </a>
                                 </li>
@@ -121,14 +121,14 @@
                             </a>
                             <ul class="sub">
                                 <li>
-                                    <a>
+                                    <a href="{{url('/historial')}}">
                                         Listado de historial
                                     </a>
                                 </li>
                             </ul>
                             <ul class="sub">
                                 <li>
-                                    <a>
+                                    <a href="">
                                         Registro de historial
                                     </a>
                                 </li>
