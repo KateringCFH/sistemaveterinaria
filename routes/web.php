@@ -33,3 +33,5 @@ Route::resource('/personal', 'PersonalController');
 Route::resource('/propietario', 'PropietarioController');
 Route::resource('/mascota', 'MascotaController');
 Route::resource('/historial', 'HistorialController');
+
+Route::get('/citas','HistorialController@citas');

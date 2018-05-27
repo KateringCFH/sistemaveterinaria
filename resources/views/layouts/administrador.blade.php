@@ -160,8 +160,14 @@
                             </a>
                             <ul class="sub">
                                 <li>
+                                    <a href="{{url('/citas')}}">
+                                        Reporte de Citas
+                                    </a>
                                     <a>
                                         Reporte de Historial
+                                    </a>
+                                    <a>
+                                        Reporte de Expediente
                                     </a>
                                 </li>
                             </ul>
