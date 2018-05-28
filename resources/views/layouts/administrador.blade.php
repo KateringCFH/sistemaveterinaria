@@ -163,7 +163,7 @@
                                     <a href="{{url('/citas')}}">
                                         Reporte de Citas
                                     </a>
-                                    <a>
+                                    <a href="{{url('/rhistorial')}}">
                                         Reporte de Historial
                                     </a>
                                     <a>

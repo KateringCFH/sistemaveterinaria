@@ -1,29 +1,15 @@
-<?php
-$c= Auth::user()->cargo;
-?>
-@extends('layouts.'.$c)
+@extends('layouts.administrador')
 @section('contenido')
 <section id="main-content">
     <section class="wrapper">
         <h3>
             <i class="fa fa-angle-right">
             </i>
-            Mascota
+            Cita
         </h3>
         <div class="row mt">
             <div class="col-lg-12">
                 <div class="content-panel">
-                    <h4>
-                        <i class="fa fa-angle-right">
-                        </i>
-                        Listado de las mascotas
-                        <a class="btn btn-success btn-xs" href="mascota/create">
-                            <i class="fa fa-plus">
-                                Nuevo
-                            </i>
-                        </a>
-                    </h4>
-                    @include('mascota.search')
                     <section id="no-more-tables">
                         <table class="table table-bordered table-striped table-condensed cf">
                             <thead class="cf">
@@ -32,81 +18,93 @@ $c= Auth::user()->cargo;
                                         ID
                                     </th>
                                     <th>
-                                        NOMBRE
+                                        FECHA
                                     </th>
                                     <th>
-                                        RAZA
+                                        MASCOTA
+                                    </th>
+                                    <th>
+                                        PROPIETARIO
+                                    </th>
+                                    <th>
+                                        RFID
                                     </th>
                                     <th>
                                         ESPECIE
                                     </th>
                                     <th>
-                                        SEXO
+                                        RAZON DE ATENCION
                                     </th>
                                     <th>
-                                        DESCRIPCION
+                                        TRATAMIENTO
                                     </th>
                                     <th>
-                                        FECHA REGISTRO
-                                    </th>
-                                    <th>
-                                        PROPIETARIO
+                                        ATENDIDO POR ...
                                     </th>
                                     <th width="200px">
                                         OPCIONES
                                     </th>
                                 </tr>
                             </thead>
-                            @foreach ($Mascota as $m)
+                            @foreach ($Historial as $h)
                             <tbody>
                                 <tr>
                                     <td>
-                                        {{ $m->id_mascota }}
+                                        {{ $h->id }}
                                     </td>
                                     <td>
-                                        {{ $m->nombre }}
+                                        {{ $h->fecha }}
                                     </td>
                                     <td>
-                                        {{ $m->raza }}
+                                        {{ $h->mn }}
                                     </td>
                                     <td>
-                                        {{ $m->especie }}
+                                        {{ $h->prn }}
+                                        {{ $h->prap }}
+                                        {{ $h->pram }}
+                                    </td>
+                                    <th>
+                                        {{ $h->rfid }}
+                                    </th>
+                                    <td>
+                                        {{ $h->e }}
                                     </td>
                                     <td>
-                                        {{ $m->sexo }}
+                                        {{ $h->obs }}
                                     </td>
                                     <td>
-                                        {{ $m->descripcion }}
+                                        {{ $h->des }}
                                     </td>
                                     <td>
-                                        {{ $m->fecha_registro }}
+                                        {{ $h->pn }}
+                                        {{ $h->pap }}
+                                        {{ $h->pam }}
                                     </td>
                                     <td>
-                                        {{ $m->pn }}
-                                        {{ $m->pp }}
-                                        {{ $m->pm }}
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-warning btn-xs" href="{{URL::action('MascotaController@edit',$m->id_mascota)}}" type="submit">
+                                        <a class="btn btn-primary btn-xs" href="{{url('/citas/pdf')}}" type="submit">
+                                            <i class="fa fa-pencil">
+                                                Descargar
+                                            </i>
+                                        </a>
+                                        <a class="btn btn-warning btn-xs" href="" type="submit">
                                             <i class="fa fa-pencil">
                                                 Editar
                                             </i>
                                         </a>
-                                        <a class="btn btn-danger btn-xs" data-target="#modal-delete-{{$m->id_mascota}}" data-toggle="modal" href="">
+                                        <a class="btn btn-danger btn-xs" href="">
                                             <i class="fa fa-times">
                                                 Eliminar
                                             </i>
                                         </a>
                                     </td>
                                 </tr>
-                                @include('mascota.modal')
                             </tbody>
                             @endforeach
                         </table>
                     </section>
                 </div>
                 <!-- /content-panel -->
-                {{$Mascota->render()}}
+                {{$Historial->render()}}
             </div>
             <!-- /col-lg-12 -->
         </div>

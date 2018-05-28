@@ -1,4 +1,7 @@
-@extends('layouts.administrador')
+<?php
+$c= Auth::user()->cargo;
+?>
+@extends('layouts.'.$c)
 @section('contenido')
 <section id="main-content">
     <section class="wrapper">

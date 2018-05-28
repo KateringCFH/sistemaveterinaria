@@ -92,6 +92,11 @@
                                         {{ $h->pam }}
                                     </td>
                                     <td>
+                                        <!--<a class="btn btn-primary btn-xs" href="{{url('/citas/reporte', $h->id)}}" type="submit">
+                                            <i class="fa fa-pencil">
+                                                PDF
+                                            </i>
+                                        </a> -->
                                         <a class="btn btn-warning btn-xs" href="" type="submit">
                                             <i class="fa fa-pencil">
                                                 Editar

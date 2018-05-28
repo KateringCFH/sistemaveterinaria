@@ -1,4 +1,4 @@
-{!! Form::open(array('url'=>'administrador/historial','method'=>'GET','autocomplete'=>'off','role'=>'search')) !!}
+{!! Form::open(array('url'=>'/historial','method'=>'GET','autocomplete'=>'off','role'=>'search')) !!}
 <section>
     <div class="col-md-5">
         <div class="input-group">

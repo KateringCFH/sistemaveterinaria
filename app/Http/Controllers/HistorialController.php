@@ -12,6 +12,7 @@ use App\Mascota;
 use App\Servicio;
 use App\Propietario;
 use App\User;
+use PDF;
 
 class HistorialController extends Controller
 {
@@ -87,12 +88,21 @@ class HistorialController extends Controller
                 ->orwhere('pr.app', 'LIKE', '%' . $query . '%')
                 ->orwhere('pr.apm', 'LIKE', '%' . $query . '%')
                 ->orwhere('m.nombre', 'LIKE', '%' . $query . '%')
-                ->orwhere('s.nombre', 'LIKE', '%' . $query . '%')
+                ->orwhere('pr.rfid', 'LIKE', '%' . $query . '%')
                 ->orwhere('c.fecha', 'LIKE', '%' . $query . '%')
                 ->orwhere('s.descripcion', 'LIKE', '%' . $query . '%')
                 ->orderBy('c.fecha', 'asc')
                 ->paginate(8);
             return view('historial.rcitas', ["Historial" => $Historial, "searchText" => $query]);
         }
+    }
+    public function fun_pdf()
+    {
+      $pdf = PDF::loadView('historial.rcitas');
+      return $pdf->download('rcitas.pdf');
+    }
+    public function rhistorial()
+    {
+      
     }
 }

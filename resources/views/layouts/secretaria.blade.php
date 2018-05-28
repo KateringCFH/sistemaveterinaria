@@ -8,7 +8,7 @@
         <meta content="Dashboard" name="author"/>
         <meta content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina" name="keyword"/>
         <title>
-            ADMINISTRADOR
+            SECRETARIA
         </title>
         <link href="{{asset('assets/css/bootstrap.css')}}" rel="stylesheet"/>
         <link href="{{asset('assets/font-awesome/css/font-awesome.css')}}" rel="stylesheet"/>
