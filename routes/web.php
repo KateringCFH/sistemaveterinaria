@@ -38,3 +38,6 @@ Route::get('/rhistorial',function (){
   return view('historial/reporte_historial/r_historial');
 });
 Route::get('/getPDF','PDFController@getPDF');
+
+
+Route::get('/imprimir', 'GeneradorController@imprimir');
