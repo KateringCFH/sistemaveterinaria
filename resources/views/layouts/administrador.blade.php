@@ -57,7 +57,7 @@
                         {{ Auth::user()->cargo }}
                       </h5><hr/>
                         <li class="mt">
-                            <a>
+                            <a href="/dashboard">
                                 <i class="fa fa-dashboard">
                                 </i>
                                 <span>
@@ -163,7 +163,7 @@
                                     <a href="{{url('/citas')}}">
                                         Reporte de Citas
                                     </a>
-                                    <a href="{{url('/rhistorial')}}">
+                                    <a href="{{url('/r_h')}}">
                                         Reporte de Historial
                                     </a>
                                     <a>
@@ -186,5 +186,7 @@
         <script src="{{asset('assets/js/jquery.scrollTo.min.js')}}"></script>
         <script src="{{asset('assets/js/jquery.nicescroll.js')}}" type="text/javascript"></script>
         <script src="{{asset('assets/js/common-scripts.js')}}"></script>
+        <script src="{{asset('assets/js/chart-master/Chart.js')}}"></script>
+        <script src="{{asset('assets/js/chartjs-conf.js')}}"></script>
     </body>
 </html>

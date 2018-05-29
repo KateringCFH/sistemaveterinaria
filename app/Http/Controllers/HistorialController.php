@@ -12,6 +12,7 @@ use App\Mascota;
 use App\Servicio;
 use App\Propietario;
 use App\User;
+use App\Cita;
 use PDF;
 
 class HistorialController extends Controller
@@ -59,18 +60,6 @@ class HistorialController extends Controller
     {
 
     }
-    public function edit()
-    {
-
-    }
-    public function update()
-    {
-
-    }
-    public function destroy()
-    {
-
-    }
     public function citas(Request $request)
     {
         if ($request) {
@@ -96,13 +85,38 @@ class HistorialController extends Controller
             return view('historial.rcitas', ["Historial" => $Historial, "searchText" => $query]);
         }
     }
-    public function fun_pdf()
+    public function rh(Request $request)
     {
-      $pdf = PDF::loadView('historial.rcitas');
-      return $pdf->download('rcitas.pdf');
+        if ($request) {
+            $query     = trim($request->get('searchText'));
+            $Historial = DB::table('mascota as m')
+                ->join('propietario as p', 'm.id_propietario', '=', 'p.id_propietario')
+                ->select('m.id_mascota as id', 'm.nombre as mn', 'p.nombre as prn', 'p.app as prap', 'p.apm as pram')
+                ->where('m.nombre', 'LIKE', '%' . $query . '%')
+                ->orwhere('p.nombre', 'LIKE', '%'.$query.'%')
+                ->orderBy('m.id_mascota', 'asc')
+                ->paginate(8);
+            return view('historial.reporte_historial.r_h', ["Historial" => $Historial, "searchText" => $query]);
+        }
     }
-    public function rhistorial()
+    public function reporte($id)
     {
-      
+      $mascota = Mascota::findOrfail($id);
+      $propietario  =  DB::table('mascota as m')
+          ->join('propietario as p', 'm.id_propietario', '=', 'p.id_propietario')
+          ->select('p.id_propietario as idp', 'p.nombre as nombre', 'p.app as app', 'p.apm as apm', 'p.direccion as direccion', 'p.telefono as telefono')
+          ->where('m.id_mascota', '=', $id)
+          ->first();
+        $citas = DB::table('mascota as m')
+            ->join('cita as c', 'm.id_mascota', '=', 'c.id_mascota')
+            ->join('servicio as s', 'c.id_servicio', '=', 's.id_servicio')
+            ->select('c.fecha as fecha',  'm.especie as especie',
+                      'c.observacion as observacion', 's.nombre as servicio',
+                      'c.edad as edad', 'c.peso as peso', 'c.producto as producto')
+            ->where('c.id_mascota', '=', $id)
+            ->get()->toArray();
+
+        return view('historial.reporte_historial.r_historial', ["m"=>$mascota, 'p'=>$propietario, 'd'=>$citas]);
+
     }
 }

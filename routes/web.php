@@ -24,6 +24,10 @@ Route::get('/veterinario', function () {
 Route::get('/secretaria', function () {
     return view('layouts/secretaria');
 });
+Route::get('/dashboard', function()
+{
+  return view('/dashboard');
+});
 Route::resource('/administrador', 'PersonalController');
 Route::resource('/personal', 'PersonalController');
 Route::resource('/propietario', 'PropietarioController');
@@ -34,10 +38,9 @@ Route::get('/citas/pdf', 'HistorialController@fun_pdf');
 Route::get('/citas/reporte', function () {
     return view('historial/reporte_cita');
 });
-Route::get('/rhistorial',function (){
-  return view('historial/reporte_historial/r_historial');
-});
+Route::get('/rhistorial/{id}','HistorialController@reporte');
 Route::get('/getPDF','PDFController@getPDF');
-
-
-Route::get('/imprimir', 'GeneradorController@imprimir');
+//reporte historial
+Route::get('/imprimir/{id}', 'GeneradorController@imprimir');
+//
+Route::get('/r_h','HistorialController@rh');
