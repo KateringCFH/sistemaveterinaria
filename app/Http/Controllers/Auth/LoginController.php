@@ -50,7 +50,7 @@ class LoginController extends Controller
             }
             else
             {
-                if (auth()->user()->cargo == 'Recepcionista') {
+                if (auth()->user()->cargo == 'Secretaria') {
                   return '/secretaria';
                 }
                 else

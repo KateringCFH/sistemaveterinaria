@@ -144,8 +144,14 @@
                             </a>
                             <ul class="sub">
                                 <li>
-                                    <a>
+                                    <a href="{{url('/citas')}}">
+                                        Reporte de Citas
+                                    </a>
+                                    <a href="{{url('/r_h')}}">
                                         Reporte de Historial
+                                    </a>
+                                    <a>
+                                        Reporte de Expediente
                                     </a>
                                 </li>
                             </ul>

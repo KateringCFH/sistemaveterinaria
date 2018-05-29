@@ -27,6 +27,7 @@ class PropietarioController extends Controller
                 ->orwhere('apm', 'LIKE', '%' . $query . '%')
                 ->orwhere('ci', 'LIKE', '%' . $query . '%')
                 ->orwhere('telefono', 'LIKE', '%' . $query . '%')
+                ->orwhere('rfid', 'LIKE', '%' . $query . '%')
                 ->orderBy('id_propietario', 'asc')
                 ->paginate(8);
             return view('propietario.index', ["Propietario" => $propietario, "searchText" => $query]);

@@ -30,7 +30,7 @@ class PropietarioFormRequest extends FormRequest
             'ci'         => 'required|max:9',
             'telefono'   => 'required|max:9',
             'direccion'  => 'max:200',
-            'rfid'       => 'max:11|required|unique:propietario',
+            'rfid'       => 'max:15|required|unique:propietario',
         ];
     }
 }
