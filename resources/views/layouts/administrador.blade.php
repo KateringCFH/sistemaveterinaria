@@ -136,7 +136,7 @@
                             </ul>
                             <ul class="sub">
                                 <li>
-                                    <a href="{{action('HistorialController@create')}}">
+                                    <a href="{{url('/mascota')}}">
                                         Registro de historial
                                     </a>
                                 </li>

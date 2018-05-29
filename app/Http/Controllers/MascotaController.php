@@ -20,22 +20,25 @@ class MascotaController extends Controller
             $query   = trim($request->get('searchText'));
             $Mascota = DB::table('mascota as m')
                 ->join('propietario as p', 'm.id_propietario', '=', 'p.id_propietario')
-                ->select('m.id_mascota', 'm.nombre', 'm.raza', 'm.especie', 'm.sexo', 'm.descripcion', 'm.fecha_registro', 'p.nombre as pn', 'p.app as pp', 'p.apm as pm')
+                ->select('m.id_mascota', 'm.nombre', 'm.raza', 'm.especie', 'm.sexo', 'm.descripcion', 'm.fecha_registro', 'p.nombre as pn', 'p.app as pp', 'p.apm as pm', 'p.rfid as rfid', 'm.id_propietario as idp')
                 ->where('m.nombre', 'LIKE', '%' . $query . '%')
                 ->orwhere('m.raza', 'LIKE', '%' . $query . '%')
                 ->orwhere('m.especie', 'LIKE', '%' . $query . '%')
                 ->orwhere('m.sexo', 'LIKE', '%' . $query . '%')
                 ->orwhere('m.descripcion', 'LIKE', '%' . $query . '%')
+                ->orwhere('p.rfid', 'LIKE', '%' . $query . '%')
+                ->orwhere('p.nombre', 'LIKE', '%' . $query . '%')
+                ->orwhere('p.app', 'LIKE', '%' . $query . '%')
                 ->orderBy('m.id_mascota', 'asc')
                 ->paginate(8);
             return view('mascota.index', ["Mascota" => $Mascota, "searchText" => $query]);
         }
     }
-    public function create()
+    public function create($m, $p)
     {
-        $propietario = DB::table('propietario')
-            ->get();
-        return view('mascota.create', ["propietario" => $propietario]);
+        $idm = $m;
+        $idp = $p;
+        return view('historial.create', ["idm" => $idm, '$idp' => $idp]);
     }
     public function store(MascotaFormRequest $request)
     {

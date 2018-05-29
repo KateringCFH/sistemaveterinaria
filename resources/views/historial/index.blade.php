@@ -17,7 +17,7 @@ $c= Auth::user()->cargo;
                         <i class="fa fa-angle-right">
                         </i>
                         Listado del historiales
-                        <a class="btn btn-success btn-xs" href="">
+                        <a class="btn btn-success btn-xs" href="{{url('/mascota')}}">
                             <i class="fa fa-plus">
                                 Nuevo
                             </i>

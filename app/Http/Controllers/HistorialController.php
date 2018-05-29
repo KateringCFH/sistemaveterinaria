@@ -8,6 +8,7 @@ use Illuminate\support\Facades\Redirect;
 use App\Http\Requests\MascotaFormRequest;
 use App\Http\Requests\UsersFormRequest;
 use App\Http\Requests\PropietarioFormRequest;
+use App\Http\Requests\CitaFormRequest;
 use App\Mascota;
 use App\Servicio;
 use App\Propietario;
@@ -53,10 +54,6 @@ class HistorialController extends Controller
         return view('historial.create', ["propietario" => $propietario]);
     }
     public function store()
-    {
-
-    }
-    public function show()
     {
 
     }
@@ -117,6 +114,20 @@ class HistorialController extends Controller
             ->get()->toArray();
 
         return view('historial.reporte_historial.r_historial', ["m"=>$mascota, 'p'=>$propietario, 'd'=>$citas]);
-
+    }
+    public function rfid(Request $request)
+    {
+        if ($request) {
+            $query     = trim($request->get('searchText'));
+            $Historial = DB::table('mascota as m')
+                ->join('propietario as p', 'm.id_propietario', '=', 'p.id_propietario')
+                ->select('m.id_mascota as id', 'm.nombre as mn', 'p.nombre as prn', 'p.app as prap', 'p.apm as pram', 'p.rfid as rfid')
+                ->where('m.nombre', 'LIKE', '%' . $query . '%')
+                ->orwhere('p.nombre', 'LIKE', '%'.$query.'%')
+                ->orwhere('p.rfid', 'LIKE', '%'.$query.'%')
+                ->orderBy('m.id_mascota', 'asc')
+                ->paginate(8);
+            return view('historial.createrfid', ["Historial" => $Historial, "searchText" => $query]);
+        }
     }
 }

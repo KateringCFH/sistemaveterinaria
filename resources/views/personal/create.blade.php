@@ -208,7 +208,6 @@ $c= Auth::user()->cargo;
                           </div>
                       </center>
                     </section>
-
                     {!!Form::close()!!}
                 </div>
                 <!-- /content-panel -->

@@ -24,7 +24,7 @@ $c= Auth::user()->cargo;
                         </a>
                     </h4>
                     @include('mascota.search')
-                    <section id="no-more-tables">
+                    <section id="unseen">
                         <table class="table table-bordered table-striped table-condensed cf">
                             <thead class="cf">
                                 <tr>
@@ -52,8 +52,14 @@ $c= Auth::user()->cargo;
                                     <th>
                                         PROPIETARIO
                                     </th>
+                                    <th>
+                                        CODIGO RFID
+                                    </th>
                                     <th width="200px">
                                         OPCIONES
+                                    </th>
+                                    <th width="200px">
+                                        CITA
                                     </th>
                                 </tr>
                             </thead>
@@ -87,7 +93,10 @@ $c= Auth::user()->cargo;
                                         {{ $m->pm }}
                                     </td>
                                     <td>
-                                        <a class="btn btn-warning btn-xs" href="{{URL::action('MascotaController@edit',$m->id_mascota)}}" type="submit">
+                                        {{ $m->rfid}}
+                                    </td>
+                                    <td width="12%">
+                                        <a class="btn btn-warning btn-xs" href="{{URL::action('HistorialController@create',$m->id_mascota, $m->idp)}}" type="submit">
                                             <i class="fa fa-pencil">
                                                 Editar
                                             </i>
@@ -95,6 +104,13 @@ $c= Auth::user()->cargo;
                                         <a class="btn btn-danger btn-xs" data-target="#modal-delete-{{$m->id_mascota}}" data-toggle="modal" href="">
                                             <i class="fa fa-times">
                                                 Eliminar
+                                            </i>
+                                        </a>
+                                    </td>
+                                    <td width="5%">
+                                        <a class="btn btn-success btn-xs" href="{{URL::action('MascotaController@edit',$m->id_mascota)}}" type="submit">
+                                            <i class="fa fa-pencil">
+                                                Añadir
                                             </i>
                                         </a>
                                     </td>

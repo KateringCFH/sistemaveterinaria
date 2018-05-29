@@ -3,7 +3,6 @@ $c= Auth::user()->cargo;
 ?>
 @extends('layouts.'.$c)
 @section('contenido')
-@section('contenido')
 <section id="main-content">
     <section class="wrapper">
         <h3>
